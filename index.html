@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/8479815ad8.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Address Book</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--Jquery : Toggle-->
+    <a href="http://jquery.com/">jQuery</a>
+    <script src="jquery-3.5.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".name").click(function () {
+          var submenu = $(this).next(".detailinfo");
+
+          if (submenu.is(":visible")) {
+            submenu.slideUp();
+          } else {
+            submenu.slideDown();
+          }
+        });
+      });
+    </script>
+
+    <!-- navbar-->
+    <div class="upperarea">
+      <nav class="navbar">
+        <span class="headname">Contact</span>
+        <i class="fas fa-user-plus"></i>
+      </nav>
+
+      <!--search bar-->
+      <div class="searcharea">
+        <input type="search" class="searchbox" placeholder="Search.." />
+      </div>
+
+      <!--Alphabet navigation bar-->
+      <div id="nav" class="CharacterContainer"></div>
+
+      <!-- Contact list-->
+      <div class="contactlist">A</div>
+      <div class="personinfo">
+        <div class="name">
+          <img src="/icon/1752632-pokemon/png/011-avatar.png" alt="" /> Aliscon
+          Cooper
+        </div>
+
+        <div class="detailinfo">
+          <ul>
+            Mobile: 07432614929
+          </ul>
+          <ul>
+            Email: alison11@gmail.com
+          </ul>
+          <ul>
+            Address: 1 Albert Embankment
+          </ul>
+          <div class="actionbuttons">
+            <button class="icon">
+              <i class="fab fa-facebook-messenger"></i>
+            </button>
+            <button class="icon">
+              <i class="fas fa-phone-alt"></i>
+            </button>
+            <button class="icon">
+              <i class="fas fa-envelope"></i>
+            </button>
+            <button class="text-edit">
+              EDIT
+            </button>
+            <button class="text-delete">
+              DELETE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
