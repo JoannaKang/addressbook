@@ -18,11 +18,13 @@
   --padding-list: 10px;
 }
 
+/*main page style*/
 body {
   display: flex;
   flex-direction: column;
   margin: 0;
   height: 100vh;
+  font-family: "Noto Sans", sans-serif;
 }
 
 .upperarea {
@@ -50,14 +52,14 @@ body {
   justify-content: space-between;
 }
 
-.popupTitle {
-  display: inline;
+.addnew {
+  background: url("icon/user-plus-solid.svg") no-repeat;
+  border: none;
+  width: 35px;
+  height: 35px
+  cursor: pointer;
 }
 
-.fa-user-plus {
-  padding-right: var(--padding-list);
-  color: var(--color-white);
-}
 
 .headname {
   padding-left: var(--padding-list);
@@ -96,12 +98,14 @@ body {
   padding-top: var(--padding-list);
   padding-bottom: var(--padding-list);
   padding-left: var(--padding-list);
+  color : var(--color-white);
 }
 
 .personinfo {
   padding-top: var(--padding-list);
   padding-left: var(--padding-list);
   padding-right: var(--padding-list);
+  padding-bottom: var(--padding-list);
   display: flex;
   flex-direction: column;
 }
@@ -148,4 +152,60 @@ body {
   border: 1px var(--color-light-grey);
   padding: 8px 8px;
   border-radius: 6px;
+}
+
+
+/*Contact info page style*/
+
+.navbar2 .backtofront {
+  padding-left: var(--padding-list);
+}
+
+.backtofront > a {
+  text-decoration: none;
+}
+
+.profilephoto {
+  padding-top: calc(var(--padding-list) * 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addphoto {
+  padding-top: var(--padding-list);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infobox {
+  margin: var(--padding-list);
+  padding-top: var(--padding-list);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.infobox > input {
+ border:none;
+ background-color: var(--color-light-grey);
+ 
+}
+
+.infobox > label {
+  width: 100px;s
+  float: left;
+  line-height: 2.5; 
+  text-align: center;
+}
+
+
+.infobox > .submitbutton{
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  background-color: var(--color-yellow);
+  font-weight: bold;
 }
