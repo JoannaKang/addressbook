@@ -10,12 +10,12 @@ function displayItems(personalinfo) {
   container.innerHTML = personalinfo
     .map((info) => createHTMLString(info))
     .join("");
+
   console.log(container);
 }
 
 function createHTMLString(personalinfo) {
   return `
-  <div class="personinfo">
   <div class="name">
     <img src="${personalinfo.imgsrc}" alt="" /> ${personalinfo.firstname} ${personalinfo.lastname} 
   </div>
@@ -30,6 +30,7 @@ function createHTMLString(personalinfo) {
     <ul>
       Address: ${personalinfo.address}
     </ul>
+
     <div class="actionbuttons">
       <button class="icon">
         <i class="fab fa-facebook-messenger"></i>
@@ -47,15 +48,15 @@ function createHTMLString(personalinfo) {
         DELETE
       </button>
     </div>
+
   </div>
-</div>
+
   `;
 }
 
 //get info from json
 loadItems()
   .then((personalinfo) => {
-    console.log(personalinfo);
     displayItems(personalinfo);
   })
   .catch(console.log);
