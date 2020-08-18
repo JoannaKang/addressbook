@@ -9,7 +9,7 @@
     ></script>
     <title>Address Book</title>
     <link rel="stylesheet" href="style.css" />
-
+    <script src="/main.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;500&display=swap"
       rel="stylesheet"
@@ -17,7 +17,7 @@
   </head>
   <body>
     <!--Jquery : Toggle-->
-    <a href="http://jquery.com/">jQuery</a>
+    <!-- <a href="http://jquery.com/">jQuery</a>
     <script src="jquery-3.5.1.js"></script>
     <script>
       $(document).ready(function () {
@@ -31,13 +31,13 @@
           }
         });
       });
-    </script>
+    </script> -->
 
     <!-- navbar-->
     <div class="upperarea">
       <nav class="navbar">
         <span class="headname">Contact</span>
-        <i class="fas fa-user-plus"></i>
+        <a href="/contactinfo.html"> <input type="button" class="addnew" /></a>
       </nav>
 
       <!--search bar-->
@@ -51,7 +51,7 @@
       <!-- Contact list-->
       <div class="contactlist">A</div>
       <div class="personinfo">
-        <div class="name">
+        <!-- <div class="name">
           <img src="/icon/1752632-pokemon/png/011-avatar.png" alt="" /> Aliscon
           Cooper
         </div>
@@ -85,6 +85,80 @@
           </div>
         </div>
       </div>
+
+      <div class="contactlist">B</div>
+      <div class="personinfo">
+        <div class="name">
+          <img src="/icon/1752632-pokemon/png/002-avatar.png" alt="" /> Briana
+          Jones
+        </div>
+
+        <div class="detailinfo">
+          <ul>
+            Mobile: 55912379512
+          </ul>
+          <ul>
+            Email: briana@gmail.com
+          </ul>
+          <ul>
+            Address: 53 Bethnal Green Rd, London E2 7DG
+          </ul>
+          <div class="actionbuttons">
+            <button class="icon">
+              <i class="fab fa-facebook-messenger"></i>
+            </button>
+            <button class="icon">
+              <i class="fas fa-phone-alt"></i>
+            </button>
+            <button class="icon">
+              <i class="fas fa-envelope"></i>
+            </button>
+            <button class="text-edit">
+              EDIT
+            </button>
+            <button class="text-delete">
+              DELETE
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="contactlist">C</div>
+      <div class="personinfo">
+        <div class="name">
+          <img src="/icon/1752632-pokemon/png/003-avatar.png" alt="" />
+          Christopher Lewin
+        </div>
+
+        <div class="detailinfo">
+          <ul>
+            Mobile: 123465451691
+          </ul>
+          <ul>
+            Email: clwin@gmail
+          </ul>
+          <ul>
+            Address: 1 Albert Embankment
+          </ul>
+          <div class="actionbuttons">
+            <button class="icon">
+              <i class="fab fa-facebook-messenger"></i>
+            </button>
+            <button class="icon">
+              <i class="fas fa-phone-alt"></i>
+            </button>
+            <button class="icon">
+              <i class="fas fa-envelope"></i>
+            </button>
+            <button class="text-edit">
+              EDIT
+            </button>
+            <button class="text-delete">
+              DELETE
+            </button>
+          </div>
+        </div>
+      </div> -->
     </div>
   </body>
 </html>
