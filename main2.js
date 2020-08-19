@@ -95,11 +95,28 @@ function createHTMLstring(initialData) {
     </div>
     `;
 }
-//open deletebox
+let delete_name;
 function openDeleteBox(fullname) {
-  console.log(fullname);
+  delete_name = fullname;
   document.querySelector(".delete-modal").style.display = "flex";
   console.log("open delete box");
+}
+
+function deleteName() {
+  console.log("delete name");
+  console.log(delete_name);
+  for (i = 0; i < initialData.length; i++) {
+    if (
+      delete_name ===
+      initialData[i].firstname + " " + initialData[i].lastname
+    ) {
+      console.log("deleting value " + i);
+      deletedarray = initialData.splice(i, 1);
+      console.log(initialData);
+    }
+  }
+  displayPage();
+  document.querySelector(".delete-modal").style.display = "none";
 }
 
 //close delete box
