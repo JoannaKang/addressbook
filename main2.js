@@ -87,7 +87,7 @@ function createHTMLstring(initialData) {
         <button class="text-edit">
           EDIT
         </button>
-        <button class="text-delete" onclick ="document.getElementById('id01')">
+        <button class="text-delete">
           DELETE
         </button>
       </div>
@@ -95,6 +95,19 @@ function createHTMLstring(initialData) {
     </div>
     `;
 }
+//open add info popup
+document.getElementById("addbutton").addEventListener("click", function () {
+  document.querySelector(".bg-modal").style.display = "flex";
+});
+
+//close info popup
+document
+  .querySelector(".addpopup-close")
+  .addEventListener("click", function () {
+    document.querySelector(".bg-modal").style.display = "none";
+  });
+
+//open delete check popup
 
 getData();
 displayPage();
