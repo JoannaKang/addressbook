@@ -87,7 +87,7 @@ function createHTMLstring(initialData) {
         <button class="text-edit">
           EDIT
         </button>
-        <button class="text-delete">
+        <button class="text-delete" onclick="openDeleteBox('${initialData.firstname} ${initialData.lastname}');">
           DELETE
         </button>
       </div>
@@ -95,6 +95,20 @@ function createHTMLstring(initialData) {
     </div>
     `;
 }
+//open deletebox
+function openDeleteBox(fullname) {
+  console.log(fullname);
+  document.querySelector(".delete-modal").style.display = "flex";
+  console.log("open delete box");
+}
+
+//close delete box
+document
+  .querySelector(".deletepopup-close")
+  .addEventListener("click", function () {
+    document.querySelector(".delete-modal").style.display = "none";
+  });
+
 //open add info popup
 document.getElementById("addbutton").addEventListener("click", function () {
   document.querySelector(".bg-modal").style.display = "flex";
