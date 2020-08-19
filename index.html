@@ -9,7 +9,7 @@
     ></script>
     <title>Address Book</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="/main.js" defer></script>
+    <script src="/main2.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;500&display=swap"
       rel="stylesheet"
@@ -38,15 +38,19 @@
       <nav class="navbar">
         <span class="headname">Contact</span>
 
-    <!--search bar-->
-    <div class="searcharea">
-      <input type="text" id="myInput" onkeyup="loadPage()" class="searchbox" placeholder="Search.." />
-    </div>
-    <a href="/contactinfo.html"> <input type="button" class="addnew" /></a>
-      
+        <!--search bar-->
+        <div class="searcharea">
+          <input
+            type="text"
+            id="myInput"
+            onkeyup="displayPage()"
+            class="searchbox"
+            placeholder="Search.."
+          />
+        </div>
+        <a href="/contactinfo.html"> <input type="button" class="addnew" /></a>
       </nav>
     </div>
-
 
     <!--Alphabet navigation bar-->
     <div id="nav" class="CharacterContainer"></div>
@@ -55,7 +59,6 @@
     <div class="contactlist"></div>
     <div class="personinfo"></div>
 
-    
-    </div>
+    <!--contact list area fin-->
   </body>
 </html>
