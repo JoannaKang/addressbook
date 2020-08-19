@@ -16,6 +16,55 @@
     />
   </head>
   <body>
+    <!--Add modal-->
+    <div class="bg-modal">
+      <div class="modal-content">
+        <div class="profilephoto">
+          <div class="addpopup-close">+</div>
+          <input
+            type="image"
+            src="icon/1752632-pokemon/png/013-avatar.png"
+            alt="submit"
+            width="60"
+            height="60"
+            class="profile"
+          />
+
+          <form action="/action_page.php">
+            <input
+              type="file"
+              name="uploadfile"
+              id="img"
+              style="display: none;"
+              accept="image/*"
+              class="choosefile"
+            />
+            <label for="img">Upload</label>
+            <input type="submit" class="submitbutton" style="display: none;" />
+          </form>
+          <div class="infobox">
+            <label>First name </label> <input type="text" class="firstname" />
+            <label>Last name </label><input type="text" class="lastname" />
+            <label>Mobile</label> <input type="number" class="mobile" />
+            <label>Email</label><input type="email" class="email" />
+            <label>Address</label> <input type="text" class="address" />
+          </div>
+          <input type="submit" class="submitbutton" />
+        </div>
+      </div>
+    </div>
+
+    <!--Delete modal-->
+    <div class="delete-modal">
+      <div class="deletealert">
+        <div class="deletepopup-close">+</div>
+        <h1>Delete Account</h1>
+        <p>Are you sure you want to delete your account?</p>
+        <button class="yes">YES</button>
+        <button class="discard">DISCARD</button>
+      </div>
+    </div>
+
     <!--Jquery : Toggle-->
     <a href="http://jquery.com/">jQuery</a>
     <script src="jquery-3.5.1.js"></script>
@@ -48,7 +97,9 @@
             placeholder="Search.."
           />
         </div>
-        <a href="/contactinfo.html"> <input type="button" class="addnew" /></a>
+
+        <!--Add button-->
+        <a href="#" id="addbutton" class="addnew"></a>
       </nav>
     </div>
 
@@ -60,14 +111,45 @@
     <div class="personinfo"></div>
     <!--contact list area fin-->
 
-    <!--delete modal-->
-    <!-- <div class="modal" id="id01">
-      <span
-        onclick="document.getElementById('id01').style.display='none'"
-        class="close"
-        title="Close Modal"
-        >×</span
-      >
-    </div> -->
+    <!-- <script>
+      $(document).click(function () {
+        $(".text-delete").on("click", function () {
+          $(".modal").show();
+        });
+      });
+    </script> -->
   </body>
 </html>
+
+<!-- 
+<div class="deletemodal" id="id01">
+  <span
+    onclick="document.getElementById('id01').style.display='none'"
+    class="close"
+    title="Close Modal"
+    >×</span
+  >
+  <form class="modal-content">
+    <div class="container">
+      <h1>Delete Account</h1>
+      <p>Are you sure you want to delete your account?</p>
+
+      <div class="clearfix">
+        <button
+          type="button"
+          onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          onclick="document.getElementById('id01').style.display='none'"
+          class="deletebtn"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </form>
+</div> -->
