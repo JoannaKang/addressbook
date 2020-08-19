@@ -55,15 +55,17 @@ body {
 .addnew {
   background: url("icon/user-plus-solid.svg") no-repeat;
   border: none;
-  width: 35px;
-  height: 35px
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+  vertical-align: middle;
 }
-
 
 .headname {
   padding-left: var(--padding-list);
   font-family: "Noto Sans HK", sans-serif;
+  vertical-align: middle;
+  font-size: 20px;
 }
 
 .searcharea {
@@ -77,47 +79,44 @@ body {
   width: 100%;
   box-sizing: border-box;
   border: 2px solid var(--color-yellow);
-  border-radius: 60px;
   font-size: 16px;
-  background-color: white;
+  background-color: #ffffff;
   background-image: url("/icon/search-solid.svg");
   background-size: 20px 20px;
   background-position: 15px 15px;
   background-repeat: no-repeat;
   padding: 15px 20px 12px 40px;
-  margin-top: calc(var(--padding-list) * 2);
-  margin-bottom: calc(var(--padding-list) * 2);
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-  margin-left: 30px;
-  margin-right: 30px;
+
 }
 
 .contactlist {
+  margin-top: 10px;
   background-color: var(--color-blue);
   padding-top: var(--padding-list);
   padding-bottom: var(--padding-list);
-  padding-left: var(--padding-list);
+  padding-left: calc(var(--padding-list)*2);
   color : var(--color-white);
 }
 
 .personinfo {
   padding-top: var(--padding-list);
-  padding-left: var(--padding-list);
-  padding-right: var(--padding-list);
   padding-bottom: var(--padding-list);
   display: flex;
   flex-direction: column;
 }
 
 .personinfo .name {
+  padding-left: var(--padding-list);
+  padding-top: var(--padding-list);
   font-family: "Noto Sans", sans-serif;
   vertical-align: middle;
 }
 
 .detailinfo {
+  padding-top: var(--padding-list);
   font-family: "Noto Sans", sans-serif;
-  display: none;
 }
 
 .name > img {
