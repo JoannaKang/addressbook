@@ -64,7 +64,6 @@ function createHTMLstring(initialData) {
     </div>
   
     <div class="detailinfo">
-  
       <ul>
         Mobile: ${initialData.mobile}
       </ul>
@@ -88,7 +87,7 @@ function createHTMLstring(initialData) {
         <button class="text-edit">
           EDIT
         </button>
-        <button class="text-delete" >
+        <button class="text-delete" onclick ="document.getElementById('id01')">
           DELETE
         </button>
       </div>
@@ -96,15 +95,6 @@ function createHTMLstring(initialData) {
     </div>
     `;
 }
-
-// temp = new Array();
-
-// function deleteInfo() {
-//   //if text-delete button click on the contactlist -> get a name of clicked item
-//   temp = initialData;
-//   temp.splice(3, 1);
-//   console.log();
-// }
 
 getData();
 displayPage();
