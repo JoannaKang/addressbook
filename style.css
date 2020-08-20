@@ -88,7 +88,6 @@ body {
   padding: 15px 20px 12px 40px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
-
 }
 
 .contactlist {
@@ -96,13 +95,12 @@ body {
   background-color: var(--color-blue);
   padding-top: var(--padding-list);
   padding-bottom: var(--padding-list);
-  padding-left: calc(var(--padding-list)*2);
-  color : var(--color-white);
-  
+  padding-left: calc(var(--padding-list) * 2);
+  color: var(--color-white);
 }
 
 .personinfo {
-  padding-top: var(--padding-list);
+  padding-top: 29px;
   padding-bottom: var(--padding-list);
   display: flex;
   flex-direction: column;
@@ -154,7 +152,6 @@ body {
   border-radius: 6px;
 }
 
-
 /*Contact info page style*/
 
 .navbar2 .backtofront {
@@ -182,7 +179,6 @@ body {
 
 .infobox {
   margin: var(--padding-list);
-  padding-top: var(--padding-list);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,21 +186,18 @@ body {
 }
 
 .infobox > input {
- border:none;
- background-color: var(--color-light-grey);
- display: block;
- 
+  border: none;
+  background-color: var(--color-light-grey);
+  display: flex;
 }
 
 .infobox > label {
-  width: 100px;s
+  width: 100px;
   float: left;
-  line-height: 2.5; 
+  line-height: 2.5;
   text-align: center;
 }
-
-
-.submitbutton{
+.submitbutton {
   padding: 10px 10px 10px 10px;
   border-radius: 10px;
   background-color: var(--color-yellow);
@@ -216,8 +209,8 @@ body {
 .bg-modal {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -231,6 +224,10 @@ body {
 .modal-content {
   width: 300px;
   height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: var(--color-white);
   border-radius: 10px;
   position: relative;
@@ -239,7 +236,7 @@ body {
 .addpopup-close {
   position: absolute;
   top: 0;
-  right :14px;
+  right: 14px;
   font-size: 42px;
   transform: rotate(45deg);
   cursor: pointer;
@@ -249,8 +246,8 @@ body {
 .delete-modal {
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
   left: 0;
   right: 0;
   top: 0;
@@ -264,7 +261,7 @@ body {
 .deletealert {
   position: relative;
   width: 300px;
-  height:200px;
+  height: 200px;
   border-radius: 10px;
   background-color: var(--color-white);
   text-align: center;
@@ -274,7 +271,7 @@ body {
 .deletepopup-close {
   position: absolute;
   top: 0;
-  right :7px;
+  right: 7px;
   font-size: 30px;
   transform: rotate(45deg);
   cursor: pointer;
