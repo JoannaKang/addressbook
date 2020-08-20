@@ -36,20 +36,50 @@
               name="uploadfile"
               id="img"
               style="display: none;"
-              accept="image/*"
+              accept="image/jpeg/png"
               class="choosefile"
             />
             <label for="img">Upload</label>
             <input type="submit" class="submitbutton" style="display: none;" />
           </form>
           <div class="infobox">
-            <label>First name </label> <input type="text" class="firstname" />
-            <label>Last name </label><input type="text" class="lastname" />
-            <label>Mobile</label> <input type="number" class="mobile" />
-            <label>Email</label><input type="email" class="email" />
-            <label>Address</label> <input type="text" class="address" />
+            <label>First name </label>
+            <input
+              type="text"
+              class="newfirstname"
+              onkeyup="getFirstName()"
+              id="newfirstname"
+            />
+            <label>Last name </label
+            ><input
+              type="text"
+              class="lastname"
+              onkeyup="getLastName()"
+              id="newlastname"
+            />
+            <label>Mobile</label>
+            <input
+              type="number"
+              class="mobile"
+              onkeyup="getMobile()"
+              id="newmobile"
+            />
+            <label>Email</label
+            ><input
+              type="email"
+              class="email"
+              onkeyup="getEmail()"
+              id="newemail"
+            />
+            <label>Address</label>
+            <input
+              type="text"
+              class="address"
+              onkeyup="getAddress()"
+              id="newaddress"
+            />
           </div>
-          <input type="submit" class="submitbutton" />
+          <input type="submit" class="submitbutton" onclick="addNewInfo()" />
         </div>
       </div>
     </div>
@@ -66,21 +96,6 @@
     </div>
 
     <!--Jquery : Toggle-->
-    <a href="http://jquery.com/">jQuery</a>
-    <script src="jquery-3.5.1.js"></script>
-    <script>
-      $(document).ready(function () {
-        $(".name").click(function () {
-          var submenu = $(this).next(".detailinfo");
-
-          if (submenu.is(":visible")) {
-            submenu.slideUp();
-          } else {
-            submenu.slideDown();
-          }
-        });
-      });
-    </script>
 
     <!-- navbar-->
     <div class="upperarea">
@@ -103,53 +118,9 @@
       </nav>
     </div>
 
-    <!--Alphabet navigation bar-->
-    <div id="nav" class="CharacterContainer"></div>
-
     <!-- Contact list-->
     <div class="contactlist"></div>
     <div class="personinfo"></div>
     <!--contact list area fin-->
-
-    <!-- <script>
-      $(document).click(function () {
-        $(".text-delete").on("click", function () {
-          $(".modal").show();
-        });
-      });
-    </script> -->
   </body>
 </html>
-
-<!-- 
-<div class="deletemodal" id="id01">
-  <span
-    onclick="document.getElementById('id01').style.display='none'"
-    class="close"
-    title="Close Modal"
-    >×</span
-  >
-  <form class="modal-content">
-    <div class="container">
-      <h1>Delete Account</h1>
-      <p>Are you sure you want to delete your account?</p>
-
-      <div class="clearfix">
-        <button
-          type="button"
-          onclick="document.getElementById('id01').style.display='none'"
-          class="cancelbtn"
-        >
-          Cancel
-        </button>
-        <button
-          type="button"
-          onclick="document.getElementById('id01').style.display='none'"
-          class="deletebtn"
-        >
-          Delete
-        </button>
-      </div>
-    </div>
-  </form>
-</div> -->
