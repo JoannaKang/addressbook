@@ -1,7 +1,5 @@
 # Address book
 
-## Mobile version address book
-
 ### [ Features ]
 
     - Create new contacts
