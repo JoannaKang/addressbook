@@ -10,7 +10,7 @@ function getData() {
     .then(function setInitialdata(json) {
       (initialData = json.personalinfo),
         displayPage(),
-        (higestindex = initialData.length);
+        (higestindex = initialData.length - 1);
     });
 }
 
@@ -145,16 +145,17 @@ displayPage();
 
 //4. Addinfo
 let newinfo = {};
-let new_firstname;
-let new_lastname;
-let new_mobile;
-let new_email;
-let new_address;
-let new_profile;
+// let new_firstname;
+// let new_lastname;
+// let new_mobile;
+// let new_email;
+// let new_address;
+// let new_profile;
 
 //Activate when popup submit button click
 function addNewInfo() {
-  newinfo.dataindex = higestindex + 1;
+  adddataindex = higestindex + 1;
+  newinfo.dataindex = String(adddataindex);
   imglist = [
     "../icon/1752632-pokemon/png/032-avatar.png",
     "../icon/1752632-pokemon/png/033-avatar.png",
@@ -170,6 +171,8 @@ function addNewInfo() {
   initialData.push(newinfo);
   //console.log(initialData);
   document.querySelector(".bg-modal").style.display = "none";
+  newinfo = {};
+  modifiedinfo = {};
   displayPage();
 }
 
@@ -219,6 +222,11 @@ document
 //open add info popup
 document.getElementById("addbutton").addEventListener("click", function () {
   document.querySelector(".bg-modal").style.display = "flex";
+  document.getElementById("newfirstname").value = "";
+  document.getElementById("newlastname").value = "";
+  document.getElementById("newmobile").value = "";
+  document.getElementById("newemail").value = "";
+  document.getElementById("newaddress").value = "";
   console.log("addbuttonclick");
 });
 
@@ -257,13 +265,6 @@ function openEditBox(dataindex) {
   ).value = `${initialData[modifydataindex].address}`;
 }
 
-let modifiedinfo = {};
-let modified_firstname;
-let modified_lastname;
-let modified_mobile;
-let modified_email;
-let modified_address;
-
 function loadInfo() {
   let newFirstname = document.createTextNode(
     `${initialData[modifydataindex].firstname}`
@@ -273,7 +274,6 @@ function loadInfo() {
 function checkModifyorAdd() {
   if (modifydataindex == undefined) {
     addNewInfo();
-    console.log(modified_firstname);
     console.log("nonmodified");
   } else {
     newinfo_entries = Object.entries(newinfo);
@@ -285,24 +285,10 @@ function checkModifyorAdd() {
 
     newinfo = {};
 
-    initialData[modifydataindex];
-    imglist = [
-      "../icon/1752632-pokemon/png/032-avatar.png",
-      "../icon/1752632-pokemon/png/033-avatar.png",
-      "../icon/1752632-pokemon/png/034-avatar.png",
-      "../icon/1752632-pokemon/png/036-avatar.png",
-      "../icon/1752632-pokemon/png/037-avatar.png",
-      "../icon/1752632-pokemon/png/039-avatar.png",
-      "../icon/1752632-pokemon/png/041-avatar.png",
-    ];
-    let rand = Math.floor(Math.random() * imglist.length);
-    newinfo.imgsrc = imglist[rand];
-
-    //initialData[modifydataindex] = newinfo;
-
     document.querySelector(".bg-modal").style.display = "none";
   }
   displayPage();
+  console.log(initialData);
 }
 
 //6. Toggle detail info under name
