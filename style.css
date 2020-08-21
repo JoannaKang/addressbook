@@ -44,8 +44,7 @@ body {
 }
 
 .navbar > .headname {
-  padding-left: var(--padding-list);
-  padding-top: ;
+  padding-left: 20px;
   font-family: "Noto Sans HK", sans-serif;
   vertical-align: middle;
   font-size: 20px;
@@ -82,7 +81,7 @@ body {
   cursor: pointer;
   vertical-align: middle;
   padding-right: 20px;
-  margin-top: 7px;
+  margin-top: 10px;
 }
 
 .contactlist {
