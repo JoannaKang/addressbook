@@ -43,29 +43,13 @@ body {
   justify-content: space-between;
 }
 
-.navbar2 {
-  background-color: var(--color-yellow);
-  padding-top: var(--padding-list);
-  padding-bottom: var(--padding-list);
-  margin: 0px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.addnew {
-  background: url("icon/user-plus-solid.svg") no-repeat;
-  border: none;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  vertical-align: middle;
-}
-
-.headname {
+.navbar > .headname {
   padding-left: var(--padding-list);
+  padding-top: ;
   font-family: "Noto Sans HK", sans-serif;
   vertical-align: middle;
   font-size: 20px;
+  line-height: 43px;
 }
 
 .searcharea {
@@ -90,17 +74,28 @@ body {
   transition: width 0.4s ease-in-out;
 }
 
+.navbar > .addnew {
+  background: url("icon/user-plus-solid.svg") no-repeat;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  vertical-align: middle;
+  padding-right: 20px;
+  margin-top: 7px;
+}
+
 .contactlist {
   margin-top: 10px;
   background-color: var(--color-blue);
-  padding-top: var(--padding-list);
-  padding-bottom: var(--padding-list);
+  padding-top: calc(var(--padding-list) / 1.2);
+  padding-bottom: calc(var(--padding-list) / 1.2);
   padding-left: calc(var(--padding-list) * 2);
   color: var(--color-white);
 }
 
 .personinfo {
-  padding-top: 29px;
+  padding-top: 32px;
   padding-bottom: var(--padding-list);
   display: flex;
   flex-direction: column;
@@ -108,7 +103,7 @@ body {
 
 .personinfo .name {
   padding-left: var(--padding-list);
-  padding-top: var(--padding-list);
+  padding-top: calc(var(--padding-list) * 1.7);
   font-family: "Noto Sans", sans-serif;
   vertical-align: middle;
 }
@@ -152,15 +147,7 @@ body {
   border-radius: 6px;
 }
 
-/*Contact info page style*/
-
-.navbar2 .backtofront {
-  padding-left: var(--padding-list);
-}
-
-.backtofront > a {
-  text-decoration: none;
-}
+/*Add info page style*/
 
 .profilephoto {
   padding-top: calc(var(--padding-list) * 3);
