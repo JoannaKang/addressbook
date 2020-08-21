@@ -172,11 +172,18 @@ function addNewInfo() {
 //Get New Info from popup window
 function getFirstName() {
   new_firstname = document.getElementById("newfirstname").value;
+  new_firstname =
+    new_firstname[0].toUpperCase() +
+    new_firstname.substring(1, new_firstname.length);
   newinfo.firstname = new_firstname;
+  console.log(new_firstname);
 }
 
 function getLastName() {
   new_lastname = document.getElementById("newlastname").value;
+  new_lastname =
+    new_lastname[0].toUpperCase() +
+    new_lastname.substring(1, new_lastname.length);
   newinfo.lastname = new_lastname;
 }
 
