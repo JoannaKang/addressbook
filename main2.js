@@ -111,7 +111,6 @@ function openDeleteBox(fullname) {
 
 function deleteName() {
   console.log("delete name");
-  console.log(deleted_data);
   for (i = 0; i < initialData.length; i++) {
     if (
       deleted_data ===
@@ -138,19 +137,11 @@ document.querySelector(".discard").addEventListener("click", function () {
   document.querySelector(".delete-modal").style.display = "none";
 });
 
-//open delete check popup
-
 getData();
 displayPage();
 
 //4. Addinfo
 let newinfo = {};
-// let new_firstname;
-// let new_lastname;
-// let new_mobile;
-// let new_email;
-// let new_address;
-// let new_profile;
 
 //Activate when popup submit button click
 function addNewInfo() {
@@ -167,9 +158,7 @@ function addNewInfo() {
   ];
   let rand = Math.floor(Math.random() * imglist.length);
   newinfo.imgsrc = imglist[rand];
-  //console.log(newinfo);
   initialData.push(newinfo);
-  //console.log(initialData);
   document.querySelector(".bg-modal").style.display = "none";
   newinfo = {};
   modifiedinfo = {};
@@ -234,17 +223,16 @@ document.getElementById("addbutton").addEventListener("click", function () {
 let modifydata;
 let modifydataindex;
 
-function getEditedDataIndex(dataindex) {
-  modifydataindex = dataindex;
+function getEditedDataIndex(adddataindex) {
+  modifydataindex = adddataindex;
   console.log(modifydataindex);
 }
 
-//5-1.fill currentinfo to inputbox
+//5-1.Fill currentinfo to inputbox
 
 function openEditBox(dataindex) {
   modifydataindex = dataindex;
   console.log("editclick");
-  console.log(modifydataindex);
   console.log(initialData[modifydataindex].firstname);
   document.querySelector(".bg-modal").style.display = "flex";
 
@@ -290,5 +278,3 @@ function checkModifyorAdd() {
   displayPage();
   console.log(initialData);
 }
-
-//6. Toggle detail info under name
