@@ -16,6 +16,27 @@
     />
   </head>
   <body>
+    <!-- navbar-->
+    <div class="upperarea">
+      <nav class="navbar">
+        <span class="headname">Contact</span>
+
+        <!--search bar-->
+        <div class="searcharea">
+          <input
+            type="text"
+            id="myInput"
+            onkeyup="displayPage()"
+            class="searchbox"
+            placeholder="Search.."
+          />
+        </div>
+
+        <!--Add button-->
+        <a href="#" id="addbutton" class="addnew"></a>
+      </nav>
+    </div>
+
     <!--Add modal-->
     <div class="bg-modal">
       <div class="modal-content">
@@ -79,7 +100,11 @@
               id="newaddress"
             />
           </div>
-          <input type="submit" class="submitbutton" onclick="addNewInfo()" />
+          <input
+            type="submit"
+            class="submitbutton"
+            onclick="checkModifyorAdd()"
+          />
         </div>
       </div>
     </div>
@@ -96,27 +121,6 @@
     </div>
 
     <!--Jquery : Toggle-->
-
-    <!-- navbar-->
-    <div class="upperarea">
-      <nav class="navbar">
-        <span class="headname">Contact</span>
-
-        <!--search bar-->
-        <div class="searcharea">
-          <input
-            type="text"
-            id="myInput"
-            onkeyup="displayPage()"
-            class="searchbox"
-            placeholder="Search.."
-          />
-        </div>
-
-        <!--Add button-->
-        <a href="#" id="addbutton" class="addnew"></a>
-      </nav>
-    </div>
 
     <!-- Contact list-->
     <div class="contactlist"></div>
