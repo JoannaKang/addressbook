@@ -123,7 +123,7 @@ body {
 }
 
 .actionbuttons {
-  width: 400px;
+  width: 100%;
   padding-top: var(--padding-list);
   padding-left: 15px;
   display: flex;
