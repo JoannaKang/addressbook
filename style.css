@@ -125,7 +125,6 @@ body {
 .actionbuttons {
   width: 100%;
   padding-top: var(--padding-list);
-  padding-left: 15px;
   display: flex;
   justify-content: space-around;
 }
