@@ -111,6 +111,7 @@ body {
 
 .detailinfo {
   padding-top: var(--padding-list);
+  padding-right: var(--padding-list);
   font-family: "Noto Sans", sans-serif;
   display: none;
 }
