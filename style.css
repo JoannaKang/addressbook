@@ -70,8 +70,7 @@ body {
   background-position: 15px 15px;
   background-repeat: no-repeat;
   padding: 15px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
+  outline: none;
 }
 
 .navbar > .addnew {
