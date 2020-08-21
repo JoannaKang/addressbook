@@ -106,11 +106,13 @@ body {
   padding-top: calc(var(--padding-list) * 1.7);
   font-family: "Noto Sans", sans-serif;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .detailinfo {
   padding-top: var(--padding-list);
   font-family: "Noto Sans", sans-serif;
+  display: none;
 }
 
 .name > img {
