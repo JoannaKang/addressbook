@@ -148,6 +148,7 @@ let new_email;
 let new_address;
 let new_profile;
 
+//Activate when popup submit button click
 function addNewInfo() {
   newinfo.dataindex = `${initialData.length}`;
   imglist = [
@@ -161,15 +162,14 @@ function addNewInfo() {
   ];
   let rand = Math.floor(Math.random() * imglist.length);
   newinfo.imgsrc = imglist[rand];
-  console.log(newinfo);
+  //console.log(newinfo);
   initialData.push(newinfo);
-  console.log(initialData);
-  document.addEventListener("click", function () {
-    document.querySelector(".bg-modal").style.display = "none";
-  });
+  //console.log(initialData);
+  document.querySelector(".bg-modal").style.display = "none";
   displayPage();
 }
 
+//Get New Info from popup window
 function getFirstName() {
   new_firstname = document.getElementById("newfirstname").value;
   newinfo.firstname = new_firstname;
@@ -200,36 +200,96 @@ function getAddress() {
 document
   .querySelector(".addpopup-close")
   .addEventListener("click", function () {
+    modifydataindex = "";
+    console.log(modifydataindex);
     document.querySelector(".bg-modal").style.display = "none";
   });
 
 //open add info popup
 document.getElementById("addbutton").addEventListener("click", function () {
   document.querySelector(".bg-modal").style.display = "flex";
+  console.log("addbuttonclick");
 });
 
 //5. Edit
 let modifydata;
 let modifydataindex;
 
+function getEditedDataIndex(dataindex) {
+  modifydataindex = dataindex;
+  console.log(modifydataindex);
+}
+
+//5-1.fill currentinfo to inputbox
+
 function openEditBox(dataindex) {
   modifydataindex = dataindex;
   console.log("editclick");
   console.log(modifydataindex);
   console.log(initialData[modifydataindex].firstname);
-
-  // function createFirstname(modifydataindex) {
-  //   currentFisrtname = document.createTextnode(
-  //     `${initialData[modifydataindex].firstname}`
-  //   );
-  //   document.body.appendChild(newfirstname);
-  //   console.log("currentname");
-  // }
-
   document.querySelector(".bg-modal").style.display = "flex";
+
+  document.getElementById(
+    "newfirstname"
+  ).value = `${initialData[modifydataindex].firstname}`;
+  document.getElementById(
+    "newlastname"
+  ).value = `${initialData[modifydataindex].lastname}`;
+  document.getElementById(
+    "newmobile"
+  ).value = `${initialData[modifydataindex].mobile}`;
+  document.getElementById(
+    "newemail"
+  ).value = `${initialData[modifydataindex].email}`;
+  document.getElementById(
+    "newaddress"
+  ).value = `${initialData[modifydataindex].address}`;
 }
 
-function editData(dataindex) {
-  modifydataindex = dataindex;
-  onsole.log(modifydataindex);
+let modifiedinfo = {};
+let modified_firstname;
+let modified_lastname;
+let modified_mobile;
+let modified_email;
+let modified_address;
+
+function loadInfo() {
+  let newFirstname = document.createTextNode(
+    `${initialData[modifydataindex].firstname}`
+  );
+}
+
+function checkModifyorAdd() {
+  if (modifydataindex == undefined) {
+    addNewInfo();
+    console.log(modified_firstname);
+    console.log("nonmodified");
+  } else {
+    newinfo_entries = Object.entries(newinfo);
+
+    for (i = 0; i < newinfo_entries.length; ++i) {
+      initialData[modifydataindex][newinfo_entries[i][0]] =
+        newinfo_entries[i][1];
+    }
+
+    newinfo = {};
+
+    initialData[modifydataindex];
+    imglist = [
+      "../icon/1752632-pokemon/png/032-avatar.png",
+      "../icon/1752632-pokemon/png/033-avatar.png",
+      "../icon/1752632-pokemon/png/034-avatar.png",
+      "../icon/1752632-pokemon/png/036-avatar.png",
+      "../icon/1752632-pokemon/png/037-avatar.png",
+      "../icon/1752632-pokemon/png/039-avatar.png",
+      "../icon/1752632-pokemon/png/041-avatar.png",
+    ];
+    let rand = Math.floor(Math.random() * imglist.length);
+    newinfo.imgsrc = imglist[rand];
+
+    //initialData[modifydataindex] = newinfo;
+
+    document.querySelector(".bg-modal").style.display = "none";
+  }
+  displayPage();
 }
