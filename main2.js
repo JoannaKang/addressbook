@@ -1,13 +1,16 @@
 //0.Get Data
 //set initial variable to save json data
 let initialData = new Array();
+let higestindex;
 
 //save json data into initialData variable
 function getData() {
   fetch("/Data/data.json")
     .then((response) => response.json())
     .then(function setInitialdata(json) {
-      (initialData = json.personalinfo), displayPage();
+      (initialData = json.personalinfo),
+        displayPage(),
+        (higestindex = initialData.length);
     });
 }
 
@@ -60,11 +63,12 @@ function displayPage() {
 
 function createHTMLstring(initialData) {
   return `
-    <div class="name">
-      <img src="${initialData.imgsrc}" alt="" /> ${initialData.firstname} ${initialData.lastname} 
+    <div id ="info-toggle" class="name"  onclick="$('#detail-info${initialData.dataindex}').toggle();")>
+      <img class="profileimg" id="profileimg" src="${initialData.imgsrc}" alt="" /> 
+      <span id="full-name">${initialData.firstname} ${initialData.lastname}</span> 
     </div>
   
-    <div class="detailinfo">
+    <div class="detailinfo" id ="detail-info${initialData.dataindex}">
       <ul>
         Mobile: ${initialData.mobile}
       </ul>
@@ -75,7 +79,7 @@ function createHTMLstring(initialData) {
         Address: ${initialData.address}
       </ul>
   
-      <div class="actionbuttons">
+      <div class="actionbuttons" id="icons">
         <button class="icon">
           <i class="fab fa-facebook-messenger"></i>
         </button>
@@ -150,7 +154,7 @@ let new_profile;
 
 //Activate when popup submit button click
 function addNewInfo() {
-  newinfo.dataindex = `${initialData.length}`;
+  newinfo.dataindex = higestindex + 1;
   imglist = [
     "../icon/1752632-pokemon/png/032-avatar.png",
     "../icon/1752632-pokemon/png/033-avatar.png",
@@ -300,3 +304,5 @@ function checkModifyorAdd() {
   }
   displayPage();
 }
+
+//6. Toggle detail info under name
