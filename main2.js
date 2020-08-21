@@ -52,7 +52,8 @@ function displayPage() {
         .toLowerCase();
       if (
         searchstring_lower === firstname_lower ||
-        searchstring_lower === lastname_lower
+        searchstring_lower === lastname_lower ||
+        searchstring_lower === `${firstname_lower} ${lastname_lower}`
       ) {
         htmlString += createHTMLstring(initialData[i]);
         container.innerHTML = htmlString;
