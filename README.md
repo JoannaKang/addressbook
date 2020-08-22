@@ -4,7 +4,7 @@
 
 ### [ Features ]
 
-    - Create new contacts
+    - Create new contacts : First/Last name, Mobile number, Email, Address
     - Delete contacts
     - Search bar to find existing contacts
     - Modify existing contacts
@@ -18,13 +18,13 @@
 
 ### [ Elements ]
 
-    1) Page construction
+    1) Page Sources
         - index.html
         - main.js
         - styl.css
     2) Mockup Data
         - /Data : data.json
-    3) Design sources
+    3) Design Sources
         - /icon
 
 </hr>
