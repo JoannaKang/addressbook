@@ -104,9 +104,7 @@ function createHTMLstring(initialData) {
 
 //3. Delete data
 let deleted_data;
-let deletecounter = 0;
 function openDeleteBox(fullname) {
-  deletecounter++;
   deleted_data = fullname;
   document.querySelector(".delete-modal").style.display = "flex";
   console.log("open delete box");
@@ -226,13 +224,16 @@ document.getElementById("addbutton").addEventListener("click", function () {
 let modifydata;
 let modifydataindex;
 
-//5-1.Fill currentinfo to inputbox
-function openEditBox(dataindex) {
-  console.log(deletecounter);
-  console.log(dataindex);
-  modifydataindex = dataindex - deletecounter;
-  console.log("editclick");
+function getEditedDataIndex(adddataindex) {
+  modifydataindex = adddataindex;
   console.log(modifydataindex);
+}
+
+//5-1.Fill currentinfo to inputbox
+
+function openEditBox(dataindex) {
+  modifydataindex = dataindex;
+  console.log("editclick");
   console.log(initialData[modifydataindex].firstname);
   document.querySelector(".bg-modal").style.display = "flex";
 
