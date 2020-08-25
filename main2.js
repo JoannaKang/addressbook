@@ -1,3 +1,5 @@
+$(document).ready(function () {});
+
 //0.Get Data
 //set initial variable to save json data
 let initialData = new Array();
@@ -18,10 +20,9 @@ function getData() {
 function displayPage() {
   //Insert HTML tag to ".personinfo" div tag
   let htmlString = "";
-  const container = document.querySelector(".personinfo");
-
+  const container = $(".personinfo");
   //get search strings from searchbox
-  let searchstring = document.getElementById("myInput").value;
+  let searchstring = $("#myInput").val();
 
   //create name group by first letter of first name
   let alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -31,15 +32,21 @@ function displayPage() {
     for (j = 0; j < alphabet.length; j++) {
       htmlString += `<div class="contactlist">${alphabet[j]}</div>`; //->create divide box
       for (i = 0; i < initialData.length; i++) {
-        if (alphabet[j] === initialData[i].firstname[0]) {
-          htmlString += createHTMLstring(initialData[i]);
+        if (initialData[i].firstname.length > 0) {
+          if (alphabet[j] === initialData[i].firstname[0]) {
+            htmlString += createHTMLstring(initialData[i]);
+          }
+        } else if (initialData[i].lastname.length > 0) {
+          if (alphabet[j] === initialData[i].lastname[0]) {
+            htmlString += createHTMLstring(initialData[i]);
+          }
         }
       }
     }
-    container.innerHTML = htmlString;
+    container.html(htmlString);
   } else {
     htmlString = "";
-    const container = document.querySelector(".personinfo");
+    const container = $(".personinfo");
     container.innerHTML = htmlString;
 
     for (i = 0; i < initialData.length; i++) {
@@ -56,7 +63,7 @@ function displayPage() {
         searchstring_lower === `${firstname_lower} ${lastname_lower}`
       ) {
         htmlString += createHTMLstring(initialData[i]);
-        container.innerHTML = htmlString;
+        container.html(htmlString);
       }
     }
   }
@@ -64,7 +71,7 @@ function displayPage() {
 
 function createHTMLstring(initialData) {
   return `
-    <div id ="info-toggle" class="name"  onclick="$('#detail-info${initialData.dataindex}').toggle();")>
+    <div id ="info-toggle" class="name" onclick="$('#detail-info${initialData.dataindex}').toggle();">
       <img class="profileimg" id="profileimg" src="${initialData.imgsrc}" alt="" /> 
       <span id="full-name">${initialData.firstname} ${initialData.lastname}</span> 
     </div>
@@ -108,7 +115,7 @@ let deletecounter = 0;
 function openDeleteBox(fullname) {
   deletecounter++;
   deleted_data = fullname;
-  document.querySelector(".delete-modal").style.display = "flex";
+  $(".delete-modal").css("display", "flex").show();
   console.log("open delete box");
 }
 
@@ -125,19 +132,17 @@ function deleteName() {
     }
   }
   displayPage();
-  document.querySelector(".delete-modal").style.display = "none";
+  $(".delete-modal").hide();
 }
 
 //3-1. Delete Box Control
 //close delete box
-document
-  .querySelector(".deletepopup-close")
-  .addEventListener("click", function () {
-    document.querySelector(".delete-modal").style.display = "none";
-  });
+$(".deletepopup-close").click(function () {
+  $(".delete-modal").hide();
+});
 
-document.querySelector(".discard").addEventListener("click", function () {
-  document.querySelector(".delete-modal").style.display = "none";
+$(".discard").click(function () {
+  $(".delete-modal").hide();
 });
 
 getData();
@@ -162,101 +167,98 @@ function addNewInfo() {
   let rand = Math.floor(Math.random() * imglist.length);
   newinfo.imgsrc = imglist[rand];
   initialData.push(newinfo);
-  document.querySelector(".bg-modal").style.display = "none";
+  $(".bg-modal").hide();
   newinfo = {};
   modifiedinfo = {};
   displayPage();
 }
 
 //Get New Info from popup window
+function uppercaseName(str) {
+  if (str === "") {
+    return str;
+  } else {
+    return str[0].toUpperCase() + str.substring(1, str.length);
+  }
+}
+
 function getFirstName() {
-  new_firstname = document.getElementById("newfirstname").value;
-  new_firstname =
-    new_firstname[0].toUpperCase() +
-    new_firstname.substring(1, new_firstname.length);
-  newinfo.firstname = new_firstname;
-  console.log(new_firstname);
+  str = $("#newfirstname").val();
+  newinfo.firstname = uppercaseName(str);
 }
 
 function getLastName() {
-  new_lastname = document.getElementById("newlastname").value;
-  new_lastname =
-    new_lastname[0].toUpperCase() +
-    new_lastname.substring(1, new_lastname.length);
-  newinfo.lastname = new_lastname;
+  str = $("#newlastname").val();
+  newinfo.lastname = uppercaseName(str);
 }
 
 function getMobile() {
-  new_mobile = document.getElementById("newmobile").value;
+  new_mobile = $("#newmobile").val();
   newinfo.mobile = new_mobile;
 }
 
 function getEmail() {
-  new_email = document.getElementById("newemail").value;
+  new_email = $("#newemail").val();
   newinfo.email = new_email;
 }
 
 function getAddress() {
-  new_address = document.getElementById("newaddress").value;
+  new_address = $("#newaddress").val();
   newinfo.address = new_address;
 }
 
 //4-1. Add Box Control
 //close info popup
-document
-  .querySelector(".addpopup-close")
-  .addEventListener("click", function () {
-    modifydataindex = "";
-    console.log(modifydataindex);
-    document.querySelector(".bg-modal").style.display = "none";
-  });
+$(".addpopup-close").click(function () {
+  modifydataindex = "";
+  console.log(modifydataindex);
+  $(".bg-modal").hide();
+});
 
 //open add info popup
-document.getElementById("addbutton").addEventListener("click", function () {
-  document.querySelector(".bg-modal").style.display = "flex";
-  document.getElementById("newfirstname").value = "";
-  document.getElementById("newlastname").value = "";
-  document.getElementById("newmobile").value = "";
-  document.getElementById("newemail").value = "";
-  document.getElementById("newaddress").value = "";
+$(".addnew").click(function () {
+  $(".bg-modal").css("display", "flex").show();
+  $("#newfirstname").val("");
+  $("#newlastname").val("");
+  $("#newmobile").val("");
+  $("#newemail").val("");
+  $("#newaddress").val("");
   console.log("addbuttonclick");
+  modifydataindex = undefined;
 });
 
 //5. Edit
 let modifydata;
-let modifydataindex;
+let modiftdataindex;
+function findId(id) {
+  return initialData.findIndex(function (entry) {
+    return entry.dataindex == id;
+  });
+}
 
 //5-1.Fill currentinfo to inputbox
 function openEditBox(dataindex) {
   console.log(deletecounter);
   console.log(dataindex);
-  modifydataindex = dataindex - deletecounter;
   console.log("editclick");
-  console.log(modifydataindex);
-  console.log(initialData[modifydataindex].firstname);
-  document.querySelector(".bg-modal").style.display = "flex";
 
-  document.getElementById(
-    "newfirstname"
-  ).value = `${initialData[modifydataindex].firstname}`;
-  document.getElementById(
-    "newlastname"
-  ).value = `${initialData[modifydataindex].lastname}`;
-  document.getElementById(
-    "newmobile"
-  ).value = `${initialData[modifydataindex].mobile}`;
-  document.getElementById(
-    "newemail"
-  ).value = `${initialData[modifydataindex].email}`;
-  document.getElementById(
-    "newaddress"
-  ).value = `${initialData[modifydataindex].address}`;
+  modifydataindex = findId(dataindex);
+
+  console.log(initialData[modifydataindex].firstname);
+  $(".bg-modal").css("display", "flex").show();
+
+  $("#newfirstname").val(`${initialData[modifydataindex].firstname}`);
+  $("#newlastname").val(`${initialData[modifydataindex].lastname}`);
+  $("#newmobile").val(`${initialData[modifydataindex].mobile}`);
+  $("#newemail").val(`${initialData[modifydataindex].email}`);
+  $("#newaddress").val(`${initialData[modifydataindex].address}`);
 }
 
 function loadInfo() {
   let newFirstname = document.createTextNode(
     `${initialData[modifydataindex].firstname}`
   );
+  console.log(newFirstname);
 }
 
 function checkModifyorAdd() {
@@ -273,8 +275,46 @@ function checkModifyorAdd() {
 
     newinfo = {};
 
-    document.querySelector(".bg-modal").style.display = "none";
+    $(".bg-modal").hide();
   }
   displayPage();
   console.log(initialData);
 }
+
+//HTML Events
+$(".searchbox").keyup(function () {
+  displayPage();
+});
+
+$(".newfirstname").keyup(function () {
+  getFirstName();
+});
+$(".lastname").keyup(function () {
+  getLastName();
+});
+$(".mobile").keyup(function () {
+  getMobile();
+});
+$(".email").keyup(function () {
+  getEmail();
+});
+$(".address").keyup(function () {
+  getAddress();
+});
+
+$(".submitbutton").on("click", function () {
+  if (newinfo.firstname === "" || newinfo.lastname === "") {
+    mandatoryalert();
+  } else {
+    checkModifyorAdd();
+  }
+});
+
+$(".yes").click(function () {
+  deleteName();
+});
+
+// $("#info-toggle").click(function () {
+//   $(".detailinfo").toggle();
+//   console.log("clicked");
+// });
