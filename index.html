@@ -10,16 +10,17 @@
     <title>Address Book</title>
 
     <link rel="stylesheet" href="style.css" />
-    <script src="/main2.js" defer></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;500&display=swap"
-      rel="stylesheet"
-    />
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
+
+    <script type="text/javascript" src="./main2.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- navbar-->
@@ -32,7 +33,6 @@
           <input
             type="text"
             id="myInput"
-            onkeyup="displayPage()"
             class="searchbox"
             placeholder="Search.."
           />
@@ -44,6 +44,8 @@
     </div>
 
     <!--Add modal-->
+    <!-- Mandatory info check -->
+
     <div class="bg-modal">
       <div class="modal-content">
         <div class="profilephoto">
@@ -71,47 +73,23 @@
           </form>
           <div class="infobox">
             <label>First name </label>
-            <input
-              type="text"
-              class="newfirstname"
-              onkeyup="getFirstName()"
-              id="newfirstname"
-            />
+            <input type="text" class="newfirstname" id="newfirstname" />
             <label>Last name </label
-            ><input
-              type="text"
-              class="lastname"
-              onkeyup="getLastName()"
-              id="newlastname"
-            />
+            ><input type="text" class="lastname" id="newlastname" />
             <label>Mobile</label>
-            <input
-              type="number"
-              class="mobile"
-              onkeyup="getMobile()"
-              id="newmobile"
-            />
+            <input type="number" class="mobile" id="newmobile" />
             <label>Email</label
-            ><input
-              type="email"
-              class="email"
-              onkeyup="getEmail()"
-              id="newemail"
-            />
+            ><input type="email" class="email" id="newemail" />
             <label>Address</label>
-            <input
-              type="text"
-              class="address"
-              onkeyup="getAddress()"
-              id="newaddress"
-            />
+            <input type="text" class="address" id="newaddress" />
           </div>
-          <input
-            type="submit"
-            class="submitbutton"
-            onclick="checkModifyorAdd()"
-          />
+          <input type="submit" class="submitbutton" />
         </div>
+        <!-- <div class="mandatory-alert">
+          <div class="mandatoryalert-close">+</div>
+          <h1>It's mandatory field</h1>
+          <buttton class="return">RETURN</buttton>
+        </div> -->
       </div>
     </div>
 
@@ -121,7 +99,7 @@
         <div class="deletepopup-close">+</div>
         <h1>Delete Account</h1>
         <p>Are you sure you want to delete this contact account?</p>
-        <button class="yes" onclick="deleteName();">YES</button>
+        <button class="yes">YES</button>
         <button class="discard">DISCARD</button>
       </div>
     </div>
