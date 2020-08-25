@@ -67,16 +67,29 @@ function displayPage() {
       }
     }
   }
+
+  $(".person-info-element").click(function () {
+    $(this).children(".detailinfo").toggle();
+  });
+
+  $(".text-edit").click(function () {
+    openEditBox($(this).attr("dataindex"));
+  });
+
+  $(".text-delete").click(function () {
+    openDeleteBox($(this).attr("dataindex"));
+  });
 }
 
 function createHTMLstring(initialData) {
   return `
-    <div id ="info-toggle" class="name" onclick="$('#detail-info${initialData.dataindex}').toggle();">
+    <div class= "person-info-element">
+    <div id ="info-toggle" class="name" >
       <img class="profileimg" id="profileimg" src="${initialData.imgsrc}" alt="" /> 
       <span id="full-name">${initialData.firstname} ${initialData.lastname}</span> 
     </div>
   
-    <div class="detailinfo" id ="detail-info${initialData.dataindex}">
+    <div class="detailinfo" id ="detail-info">
       <ul>
         Mobile: ${initialData.mobile}
       </ul>
@@ -97,40 +110,29 @@ function createHTMLstring(initialData) {
         <button class="icon">
           <i class="fas fa-envelope"></i>
         </button>
-        <button class="text-edit" onclick="openEditBox('${initialData.dataindex}');">
+        <button class="text-edit" dataindex="${initialData.dataindex}">
           EDIT
         </button>
-        <button class="text-delete" onclick="openDeleteBox('${initialData.firstname} ${initialData.lastname}');">
+        <button class="text-delete" dataindex = "${initialData.dataindex}">
           DELETE
         </button>
       </div>
   
     </div>
+    </div>
     `;
 }
 
 //3. Delete data
-let deleted_data;
-let deletecounter = 0;
-function openDeleteBox(fullname) {
-  deletecounter++;
-  deleted_data = fullname;
+let deleted_dataindex;
+function openDeleteBox(dataindex) {
+  deleted_dataindex = findId(dataindex);
   $(".delete-modal").css("display", "flex").show();
-  console.log("open delete box");
 }
 
 function deleteName() {
-  console.log("delete name");
-  for (i = 0; i < initialData.length; i++) {
-    if (
-      deleted_data ===
-      initialData[i].firstname + " " + initialData[i].lastname
-    ) {
-      console.log("deleting value " + i);
-      deletedarray = initialData.splice(i, 1);
-      console.log(initialData);
-    }
-  }
+  deletedarray = initialData.splice(deleted_dataindex, 1);
+
   displayPage();
   $(".delete-modal").hide();
 }
@@ -211,7 +213,6 @@ function getAddress() {
 //close info popup
 $(".addpopup-close").click(function () {
   modifydataindex = "";
-  console.log(modifydataindex);
   $(".bg-modal").hide();
 });
 
@@ -223,7 +224,6 @@ $(".addnew").click(function () {
   $("#newmobile").val("");
   $("#newemail").val("");
   $("#newaddress").val("");
-  console.log("addbuttonclick");
   modifydataindex = undefined;
 });
 
@@ -238,13 +238,8 @@ function findId(id) {
 
 //5-1.Fill currentinfo to inputbox
 function openEditBox(dataindex) {
-  console.log(deletecounter);
-  console.log(dataindex);
-  console.log("editclick");
-
   modifydataindex = findId(dataindex);
 
-  console.log(initialData[modifydataindex].firstname);
   $(".bg-modal").css("display", "flex").show();
 
   $("#newfirstname").val(`${initialData[modifydataindex].firstname}`);
@@ -258,13 +253,11 @@ function loadInfo() {
   let newFirstname = document.createTextNode(
     `${initialData[modifydataindex].firstname}`
   );
-  console.log(newFirstname);
 }
 
 function checkModifyorAdd() {
   if (modifydataindex == undefined) {
     addNewInfo();
-    console.log("nonmodified");
   } else {
     newinfo_entries = Object.entries(newinfo);
 
@@ -278,7 +271,6 @@ function checkModifyorAdd() {
     $(".bg-modal").hide();
   }
   displayPage();
-  console.log(initialData);
 }
 
 //HTML Events
@@ -314,7 +306,11 @@ $(".yes").click(function () {
   deleteName();
 });
 
-// $("#info-toggle").click(function () {
-//   $(".detailinfo").toggle();
-//   console.log("clicked");
-// });
+$(".text-edit").on("click", function () {
+  openEditBox(`${initialData.dataindex}`);
+});
+
+function mandatoryalert() {
+  $(".newfirstname").attr("placeholder", "First name is required");
+  $(".lastname").attr("placeholder", "Last name is required");
+}
