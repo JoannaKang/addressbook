@@ -21,7 +21,7 @@
     1) Page Sources
         - index.html
         - main.js
-        - styl.css
+        - style.css
     2) Mockup Data
         - /Data : data.json
     3) Design Sources
