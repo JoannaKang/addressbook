@@ -20,7 +20,7 @@
 
     1) Page Sources
         - index.html
-        - main.js
+        - main2.js
         - style.css
     2) Mockup Data
         - /Data : data.json
